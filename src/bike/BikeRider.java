@@ -1,8 +1,11 @@
 package bike;
 
+import bike.movement.ForwardMovement;
+import bike.movement.Movement;
+
 public class BikeRider {
-    Bike bike;
-    Grid grid;
+    private Bike bike;
+    private Grid grid;
 
     public BikeRider() {
         this.bike = new Bike();
@@ -29,14 +32,18 @@ public class BikeRider {
             bike.setDirection(Direction.valueOf(direction));
         }
     }
+
     public void turnLeft() {
         bike.turnLeft();
     }
+
     public void turnRight() {
         bike.turnRight();
     }
+
     public void moveForward() {
-        Position nextForwardPosition = bike.getNextPosition();
+        Movement forwardMovement = new ForwardMovement();
+        Position nextForwardPosition = bike.getNextPosition(forwardMovement);
         if(grid.isValidPoint(nextForwardPosition.getRowIndex(), nextForwardPosition.getColumnIndex())) {
             bike.setPosition(nextForwardPosition);
         }

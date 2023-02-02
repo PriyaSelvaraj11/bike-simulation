@@ -3,9 +3,9 @@ package commands;
 import bike.BikeRider;
 
 public class PlaceCommand extends Command{
-    int rowIndex;
-    int columnIndex;
-    String direction;
+    private int rowIndex;
+    private int columnIndex;
+    private String direction;
 
     public PlaceCommand(BikeRider bikeRider, int rowIndex, int columnIndex, String direction) {
         super(bikeRider);

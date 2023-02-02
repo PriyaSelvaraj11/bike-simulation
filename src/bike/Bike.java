@@ -8,12 +8,12 @@ public class Bike {
     private Direction direction;
 
     public Bike() {
-        position = new Position(0,0);
+        position = new Position(0, 0);
         direction = Direction.NORTH;
     }
 
     public Bike(int rowIndex, int columnIndex, Direction direction) {
-        position = new Position(rowIndex,columnIndex);
+        position = new Position(rowIndex, columnIndex);
         this.direction = direction;
     }
 
@@ -37,6 +37,7 @@ public class Bike {
         position.setRowIndex(rowIndex);
         position.setColumnIndex(columnIndex);
     }
+
     public void turnLeft() {
         this.direction = direction.rotateLeft();
     }
@@ -45,8 +46,7 @@ public class Bike {
         this.direction = direction.rotateRight();
     }
 
-    public Position getNextPosition() {
-        Movement forwardMovement = new ForwardMovement(this);
-        return forwardMovement.getNextPosition();
+    public Position getNextPosition(Movement movement) {
+        return movement.getNextPosition(this);
     }
 }

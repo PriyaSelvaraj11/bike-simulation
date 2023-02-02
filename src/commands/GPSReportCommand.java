@@ -4,7 +4,6 @@ import bike.BikeRider;
 
 public class GPSReportCommand extends Command{
     public GPSReportCommand(BikeRider bikeRider) {
-
         super(bikeRider);
     }
 

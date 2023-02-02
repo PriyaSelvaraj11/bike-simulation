@@ -27,7 +27,7 @@ public enum Direction {
         }
     }
 
-    Direction rotate(int rotationAngle) {
+    private Direction rotate(int rotationAngle) {
         int rotatedAngle = directionAngle + rotationAngle;
         if(rotatedAngle < 0) {
             rotatedAngle += 360;

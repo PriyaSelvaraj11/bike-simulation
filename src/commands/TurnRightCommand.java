@@ -3,7 +3,6 @@ package commands;
 import bike.BikeRider;
 
 public class TurnRightCommand extends Command{
-    BikeRider bikeRider;
     public TurnRightCommand(BikeRider bikeRider) {
         super(bikeRider);
     }

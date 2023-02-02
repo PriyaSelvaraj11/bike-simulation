@@ -6,7 +6,7 @@ import commands.*;
 import javax.activation.CommandMap;
 
 public class SimulationHelper {
-    static enum CommandInput {
+    private static enum CommandInput {
         PLACE,
         FORWARD,
         TURN_LEFT,
@@ -14,13 +14,13 @@ public class SimulationHelper {
         GPS_REPORT
     }
 
-    static enum DirectionInput {
+    private static enum DirectionInput {
         NORTH,
         SOUTH,
         EAST,
         WEST
     }
-    BikeRider bikeRider;
+    private BikeRider bikeRider;
 
     private boolean validateCommand(String[] parsedInputCommand) throws Exception {
             if(parsedInputCommand.length < 0) throw new Exception("Invalid command");
@@ -40,31 +40,32 @@ public class SimulationHelper {
     }
 
     private boolean executeCommand(String[] parsedInputCommand) {
-            CommandInput commandName = CommandInput.valueOf(parsedInputCommand[0]);
-            Command command;
-            switch(commandName) {
-                case PLACE:
-                    String[] placeParams =  parsedInputCommand[1].split(",");
-                    int rowIndex = Integer.parseInt(placeParams[0]), columnIndex = Integer.parseInt(placeParams[1]);
-                    command = new PlaceCommand(bikeRider,rowIndex , columnIndex, placeParams[2]);
-                    break;
-                case FORWARD:
-                    command = new ForwardCommand(bikeRider);
-                    break;
-                case TURN_LEFT:
-                    command = new TurnLeftCommand(bikeRider);
-                    break;
-                case TURN_RIGHT:
-                    command = new TurnRightCommand(bikeRider);
-                    break;
-                case GPS_REPORT:
-                    command = new GPSReportCommand(bikeRider);
-                    break;
-                default:
-                    command = null;
-            }
-            if(command == null) return false;
-            return command.execute();
+                CommandInput commandName = CommandInput.valueOf(parsedInputCommand[0]);
+                Command command;
+                switch(commandName) {
+                    case PLACE:
+                        String[] placeParams =  parsedInputCommand[1].split(",");
+                        int rowIndex = Integer.parseInt(placeParams[0]);
+                        int columnIndex = Integer.parseInt(placeParams[1]);
+                        command = new PlaceCommand(bikeRider,rowIndex , columnIndex, placeParams[2]);
+                        break;
+                    case FORWARD:
+                        command = new ForwardCommand(bikeRider);
+                        break;
+                    case TURN_LEFT:
+                        command = new TurnLeftCommand(bikeRider);
+                        break;
+                    case TURN_RIGHT:
+                        command = new TurnRightCommand(bikeRider);
+                        break;
+                    case GPS_REPORT:
+                        command = new GPSReportCommand(bikeRider);
+                        break;
+                    default:
+                        command = null;
+                }
+                if(command == null) return false;
+                return command.execute();
     }
 
     public void executeUserInput(String input) {
@@ -78,7 +79,7 @@ public class SimulationHelper {
             executeCommand(parsedInput);
 
         } catch(Exception exception) {
-            System.out.println("Error: "+ exception.getMessage());
+            System.err.println("Error: "+ exception.getMessage());
         }
     }
 }
