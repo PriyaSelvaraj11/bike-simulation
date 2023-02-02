@@ -1,9 +1,7 @@
-package simulation;
+package main.simulation;
 
-import bike.BikeRider;
-import commands.*;
-
-import javax.activation.CommandMap;
+import main.bike.BikeRider;
+import main.commands.*;
 
 public class SimulationHelper {
     private static enum CommandInput {
@@ -11,27 +9,27 @@ public class SimulationHelper {
         FORWARD,
         TURN_LEFT,
         TURN_RIGHT,
-        GPS_REPORT
+        GPS_REPORT;
+
+        public static CommandInput lookup(String id) {
+            try {
+                return CommandInput.valueOf(id);
+            } catch (IllegalArgumentException e) {
+                throw new RuntimeException("Invalid command - " + id);
+            }
+        }
     }
 
-    private static enum DirectionInput {
-        NORTH,
-        SOUTH,
-        EAST,
-        WEST
-    }
     private BikeRider bikeRider;
 
     private boolean validateCommand(String[] parsedInputCommand) throws Exception {
-            if(parsedInputCommand.length < 0) throw new Exception("Invalid command");
+            if(parsedInputCommand.length < 0 || parsedInputCommand[0] == "") throw new Exception("Invalid command");
 
-            CommandInput commandName = CommandInput.valueOf(parsedInputCommand[0]);
-            if(commandName == null)
-                throw new Exception("Invalid command!");
+            CommandInput commandName = CommandInput.lookup(parsedInputCommand[0]);
 
             boolean isPlaceCommand = (commandName == CommandInput.PLACE);
             if(bikeRider == null && !isPlaceCommand)
-                throw new Exception("Place the bike on the grid!");
+                throw new Exception("Place the main.bike on the grid!");
 
             if(isPlaceCommand && parsedInputCommand.length != 2)
                 throw new Exception("Invalid parameters for the command!");
@@ -39,15 +37,15 @@ public class SimulationHelper {
             return true;
     }
 
-    private boolean executeCommand(String[] parsedInputCommand) {
+    private boolean executeCommand(String[] parsedInputCommand) throws Exception{
                 CommandInput commandName = CommandInput.valueOf(parsedInputCommand[0]);
                 Command command;
                 switch(commandName) {
                     case PLACE:
                         String[] placeParams =  parsedInputCommand[1].split(",");
-                        int rowIndex = Integer.parseInt(placeParams[0]);
-                        int columnIndex = Integer.parseInt(placeParams[1]);
-                        command = new PlaceCommand(bikeRider,rowIndex , columnIndex, placeParams[2]);
+                        int xCoord = Integer.parseInt(placeParams[0]);
+                        int yCoord = Integer.parseInt(placeParams[1]);
+                        command = new PlaceCommand(bikeRider, xCoord , yCoord, placeParams[2]);
                         break;
                     case FORWARD:
                         command = new ForwardCommand(bikeRider);
@@ -62,9 +60,8 @@ public class SimulationHelper {
                         command = new GPSReportCommand(bikeRider);
                         break;
                     default:
-                        command = null;
+                        throw new Exception("Invalid command!");
                 }
-                if(command == null) return false;
                 return command.execute();
     }
 

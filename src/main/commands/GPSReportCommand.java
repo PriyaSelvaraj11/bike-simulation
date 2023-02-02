@@ -1,6 +1,6 @@
-package commands;
+package main.commands;
 
-import bike.BikeRider;
+import main.bike.BikeRider;
 
 public class GPSReportCommand extends Command{
     public GPSReportCommand(BikeRider bikeRider) {

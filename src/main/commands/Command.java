@@ -1,6 +1,6 @@
-package commands;
+package main.commands;
 
-import bike.BikeRider;
+import main.bike.BikeRider;
 
 public abstract class Command {
     protected BikeRider bikeRider;

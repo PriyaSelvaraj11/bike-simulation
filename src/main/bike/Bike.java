@@ -1,7 +1,6 @@
-package bike;
+package main.bike;
 
-import bike.movement.ForwardMovement;
-import bike.movement.Movement;
+import main.bike.movement.Movement;
 
 public class Bike {
     private Position position;
@@ -12,8 +11,8 @@ public class Bike {
         direction = Direction.NORTH;
     }
 
-    public Bike(int rowIndex, int columnIndex, Direction direction) {
-        position = new Position(rowIndex, columnIndex);
+    public Bike(int xCoord, int yCoord, Direction direction) {
+        position = new Position(xCoord, yCoord);
         this.direction = direction;
     }
 
@@ -33,9 +32,9 @@ public class Bike {
         this.direction = direction;
     }
 
-    public void setPositionByIndex(int rowIndex, int columnIndex) {
-        position.setRowIndex(rowIndex);
-        position.setColumnIndex(columnIndex);
+    public void setPositionByIndex(int xCoord, int yCoord) {
+        position.setXCoord(xCoord);
+        position.setYCoord(yCoord);
     }
 
     public void turnLeft() {

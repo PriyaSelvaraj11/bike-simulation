@@ -1,7 +1,7 @@
-package bike;
+package main.bike;
 
-import bike.movement.ForwardMovement;
-import bike.movement.Movement;
+import main.bike.movement.ForwardMovement;
+import main.bike.movement.Movement;
 
 public class BikeRider {
     private Bike bike;
@@ -18,6 +18,14 @@ public class BikeRider {
         this.grid = grid;
     }
 
+
+    public Bike getBike() {
+        return bike;
+    }
+
+    public void setBike(Bike bike) {
+        this.bike = bike;
+    }
     public Grid getGrid() {
         return grid;
     }
@@ -26,9 +34,9 @@ public class BikeRider {
         this.grid = grid;
     }
 
-    public void placeBike(int rowIndex, int columnIndex, String direction) {
-        if(grid.isValidPoint(rowIndex, columnIndex)) {
-            bike.setPositionByIndex(rowIndex, columnIndex);
+    public void placeBike(int xCoord, int yCoord, String direction) {
+        if(grid.isValidPoint(xCoord, yCoord)) {
+            bike.setPositionByIndex(xCoord, yCoord);
             bike.setDirection(Direction.valueOf(direction));
         }
     }
@@ -44,14 +52,14 @@ public class BikeRider {
     public void moveForward() {
         Movement forwardMovement = new ForwardMovement();
         Position nextForwardPosition = bike.getNextPosition(forwardMovement);
-        if(grid.isValidPoint(nextForwardPosition.getRowIndex(), nextForwardPosition.getColumnIndex())) {
+        if(grid.isValidPoint(nextForwardPosition.getXCoord(), nextForwardPosition.getYCoord())) {
             bike.setPosition(nextForwardPosition);
         }
     }
 
     public void printCurrentBikePosition() {
         Position bikePosition = bike.getPosition();
-        System.out.println("("+ bikePosition.getRowIndex() + "," + bikePosition.getColumnIndex()+"),"+
+        System.out.println("("+ bikePosition.getXCoord() + "," + bikePosition.getYCoord()+"),"+
                 bike.getDirection());
     }
 }

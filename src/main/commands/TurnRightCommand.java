@@ -1,6 +1,6 @@
-package commands;
+package main.commands;
 
-import bike.BikeRider;
+import main.bike.BikeRider;
 
 public class TurnRightCommand extends Command{
     public TurnRightCommand(BikeRider bikeRider) {

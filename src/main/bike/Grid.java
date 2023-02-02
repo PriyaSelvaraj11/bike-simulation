@@ -1,4 +1,4 @@
-package bike;
+package main.bike;
 
 public class Grid {
     static final int DEFAULT_ROWS = 7;
@@ -31,10 +31,10 @@ public class Grid {
         this.columnsCount = columnsCount;
     }
 
-    public boolean isValidPoint(int rowIndex, int columnIndex) {
-        if(rowIndex > rowsCount || rowIndex < 0 ||
-               columnIndex > columnsCount ||
-                columnIndex < 0) {
+    public boolean isValidPoint(int xCoord, int yCoord) {
+        if(xCoord >= rowsCount || xCoord < 0 ||
+               yCoord >= columnsCount ||
+                yCoord < 0) {
             return false;
         }
         return true;

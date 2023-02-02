@@ -1,4 +1,4 @@
-package bike;
+package main.bike;
 
 import java.util.Optional;
 import java.util.Arrays;

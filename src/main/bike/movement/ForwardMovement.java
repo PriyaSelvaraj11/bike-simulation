@@ -1,8 +1,8 @@
-package bike.movement;
+package main.bike.movement;
 
-import bike.Bike;
-import bike.Position;
-import bike.Direction;
+import main.bike.Bike;
+import main.bike.Position;
+import main.bike.Direction;
 
 public class ForwardMovement extends Movement{
     public Position getNextPosition(Bike bike) {
