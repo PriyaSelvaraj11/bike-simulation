@@ -11,4 +11,4 @@ The following main.commands are accepted by the application:
 <img src="/appImages/bike-simulation.jpg" alt="Class diagram" width="700"/>
 
 ### Code coverage stats
-<img src="/appImages/code-coverage.jpg" alt="Code coverage stats" width="700"/>
+<img src="/appImages/code-coverage.png" alt="Code coverage stats" width="700"/>
