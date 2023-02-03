@@ -53,7 +53,7 @@ public class Grid {
 
     /**
      * Returns the minimum number of columns
-     * @return
+     * @return columnsCount
      */
     public int getColumnsCount() {
         return columnsCount;

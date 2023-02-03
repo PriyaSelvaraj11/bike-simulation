@@ -36,7 +36,7 @@ public class BikeRider {
 
     /**
      * Returns the current bike placed on the grid
-     * @return
+     * @return bike
      */
     public Bike getBike() {
         return bike;
@@ -52,7 +52,7 @@ public class BikeRider {
 
     /**
      * Returns the current grid of the bike
-     * @return
+     * @return grid
      */
     public Grid getGrid() {
         return grid;

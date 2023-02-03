@@ -14,7 +14,7 @@ public class TurnLeftCommand extends Command{
     /**
      * Invokes the turnLeft function of
      * the bikeRider instance and returns true if successful
-     * @return
+     * @return boolean
      */
     @Override
     public boolean execute() {

@@ -30,7 +30,7 @@ public enum Direction {
      * Returns null if no match found.
      *
      * @param directionAngle
-     * @return
+     * @return Direction
      */
     static Direction valueOf(int directionAngle) {
         try {

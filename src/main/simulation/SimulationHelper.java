@@ -32,7 +32,7 @@ public class SimulationHelper {
     /**
      * Validate the command by command name and attribute length
      * @param parsedInputCommand
-     * @return
+     * @return boolean
      * @throws Exception
      */
     private boolean validateCommand(String[] parsedInputCommand) throws Exception {
@@ -48,7 +48,8 @@ public class SimulationHelper {
             throw new Exception("Place the bike on the grid!");
 
         // throw exception for empty or more than 1 parameter in PLACE command
-        if(isPlaceCommand && parsedInputCommand.length != 2)
+        if((isPlaceCommand && parsedInputCommand.length != 2)
+            || (!isPlaceCommand && parsedInputCommand.length != 1))
             throw new Exception("Invalid parameters for the command!");
 
         if(isPlaceCommand) {
@@ -65,7 +66,7 @@ public class SimulationHelper {
      * and executes the command
      *
      * @param parsedInputCommand
-     * @return
+     * @return boolean
      * @throws Exception
      */
     private boolean executeCommand(String[] parsedInputCommand) throws Exception{

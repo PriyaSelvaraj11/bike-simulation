@@ -13,7 +13,7 @@ public class TurnRightCommand extends Command{
     /**
      * Invokes the turnRight function of
      * the bikeRider instance and returns true if successful
-     * @return
+     * @return boolean
      */
     @Override
     public boolean execute() {

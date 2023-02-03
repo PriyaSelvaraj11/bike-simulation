@@ -59,6 +59,14 @@ public class SimulationHelperTest {
     }
 
     @Test
+    public void testInvalidCommandParameters() {
+        simulationHelper.executeUserInput("PLACE 1,2,NORTH");
+        String invalidInput = "TURN_LEFT x,y,EAST";
+        simulationHelper.executeUserInput(invalidInput);
+        assertEquals("Error: Invalid parameters for the command!\n", outContent.toString());
+    }
+
+    @Test
     public void testInputsBeforeFirstPlaceCommand() {
         simulationHelper.executeUserInput("TURN_LEFT");
         assertEquals("Error: Place the bike on the grid!\n", outContent.toString());

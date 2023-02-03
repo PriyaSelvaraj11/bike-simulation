@@ -14,7 +14,7 @@ public class ForwardCommand extends Command{
     /**
      * Invokes the moveForward function of the bikeRider instance
      * returns true if successful
-     * @return
+     * @return boolean
      */
     @Override
     public boolean execute() {

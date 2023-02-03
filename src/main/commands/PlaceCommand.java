@@ -30,7 +30,7 @@ public class PlaceCommand extends Command{
     /**
      * Invokes the placeBike function of
      * the bikeRider instance and returns true if successful
-     * @return
+     * @return boolean
      */
     @Override
     public boolean execute() {

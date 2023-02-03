@@ -14,7 +14,7 @@ public class GPSReportCommand extends Command{
     /**
      * Invokes the printCurrentBikeAttributes function of
      * the bikeRider instance and returns true if successful
-     * @return
+     * @return boolean
      */
     @Override
     public boolean execute() {
