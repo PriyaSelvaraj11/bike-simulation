@@ -14,7 +14,7 @@ The following commands are accepted by the application:
 1. Navigate to out/artifacts/bike_simulation_jar/ directory.
 2. Run the command - _java -jar bike-simulation.jar_
 
-### Class diagram
+### UML diagram of the solution
 <img src="/appImages/bike-simulation.jpg" alt="Class diagram" width="700"/>
 
 ### Code coverage stats
