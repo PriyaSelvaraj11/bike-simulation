@@ -182,7 +182,7 @@ public class BikeRiderTest {
         String bikeDirection = "NORTH";
 
         bikeRider.placeBike(bikeXCoord,bikeYCoord,bikeDirection);
-        bikeRider.printCurrentBikePosition();
+        bikeRider.printCurrentBikeAttributes();
 
         assertEquals("(1,2),NORTH\n", outContent.toString());
 
