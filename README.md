@@ -25,7 +25,9 @@ The following commands are accepted by the application:
 
 
 ### Running the application
-**System requirement**: Java 8 or above installed on your system
+**Dependencies**: 
+1.Java 8 or above installed on your system
+2.JUnit 5
 
 **Steps to run the application in the terminal**
 1. Navigate to out/artifacts/bike_simulation_jar/ directory.
