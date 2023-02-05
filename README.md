@@ -23,6 +23,9 @@ The following commands are accepted by the application:
 * _Invalid parameters for the command!_ - When the parameters count does not match with command syntax.
 * _Invalid parameters for the place command!_ - When the parameters x,y, directions for place command are invalid.
 
+### UML diagram of the solution
+<img src="/appImages/bike-simulation.jpg" alt="Class diagram" width="700"/>
+
 
 ### Running the application
 **Dependencies**: 
@@ -32,9 +35,6 @@ The following commands are accepted by the application:
 **Steps to run the application in the terminal**
 1. Navigate to out/artifacts/bike_simulation_jar/ directory.
 2. Run the command: _java -jar bike-simulation.jar_
-
-### UML diagram of the solution
-<img src="/appImages/bike-simulation.jpg" alt="Class diagram" width="700"/>
 
 ### Code coverage stats
 <img src="/appImages/code-coverage.png" alt="Code coverage stats" width="700"/>
